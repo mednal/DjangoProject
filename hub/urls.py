@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django import views
 from django.urls import path
-from .views import StudentListView, coach_List, homePage, student_Details, student_List
+
+from hub.forms import StudentForm
+from .views import CreateStudentForm, StudentListView, coach_List, homePage, student_Details, student_List,studentCreate
 
 urlpatterns = [
     path('home/', homePage,name="home"),
@@ -23,4 +25,7 @@ urlpatterns = [
     path('coach/', coach_List,name="coach"),
     path('st_details/<int:id>', student_Details,name="student_Details"),
     path('studentlist',StudentListView.as_view(),name="student_s"),
+    path('add_student/',studentCreate,name="student_ls"),
+    path('CreateStudentForm/',CreateStudentForm,name="student_sf"),
+    # path('CreateStudentView/',StudentForm,name="student_v"),
 ]

@@ -1,6 +1,8 @@
+from audioop import reverse
 from django.db import models
 from django.core.validators import *
 from django.core.exceptions import ValidationError
+from django.shortcuts import redirect
 # Create your models here.
 
 
@@ -22,6 +24,10 @@ class User(models.Model):
         return f"{self.first_name} {self.last_name}"
     
 class Student(User):
+
+    def get_absolute_url(self):
+        return reverse('Student_list')
+    
     pass
 class Coach(User):
     pass
